@@ -18,3 +18,7 @@ Antes de mostrar a página, a classe URL busca no arquivo "pages.json" e carrega
 
 1. Implementar Rotas.
 1. Mecanismo de Url amigável.
+1. Criar tags customizadas para substituir ```php <?php ?>```
+
+## Printscreen
+![Print](ps.png)
