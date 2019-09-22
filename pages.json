@@ -1,0 +1,14 @@
+{
+    "home": {
+        "lang": "en",
+        "title": "Home Page",
+        "styles": {},
+        "scripts": {}
+    },
+    "about" : {
+        "lang": "en",
+        "title": "About",
+        "styles": {},
+        "scripts": {}
+    }
+}
