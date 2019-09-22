@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= $title ?></title>
+    <title>OO Test | <?= $title ?></title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="pages/layout/app.css">
 </head>
@@ -15,6 +15,12 @@
                 <span style="color: dodgerblue;">OO</span>
                 <span style="font-weight: bold; color: firebrick;">Test</span>
             </a>
+
+            <ul class="navbar-nav">
+                <?php foreach ($pages as $key => $pg): ?>
+                <li class="nav-item<?= ($page === $key) ? " active" : "" ?>"><a class="nav-link" href="./<?= $key ?>"><?= $pg["title"] ?></a></li>
+                <?php endforeach ?>
+            </ul>
         </nav>
     </header>
 
@@ -27,7 +33,7 @@
         // echo $view;
         require "pages/$page.php";
         ?>
-        
+
     </main>
 
     <footer class="footer py-4 bg-dark text-white-50">
