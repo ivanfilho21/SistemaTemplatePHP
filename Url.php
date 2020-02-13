@@ -40,13 +40,13 @@ class Url
         $path = end($url);
         $index = strpos($path, '.php');
         $index = $index === false ? -1 : $index;
-        // echo "Index: $index <br>";
+        // echo "Position of '.php': $index <br>";
 
-        $page = (strpos($url[0], "index") === false) ? $url[0] : DEFAULT_PAGE;
+        $page = (strpos($path, "index") === false) ? $path : DEFAULT_PAGE;
         $page = ($index !== -1) ? substr($page, 0, $index - 1) : $page;
         // echo "Page: $page";
 
-        if (count($url) !== 1 || ! file_exists("pages/$page.php")) {
+        if (! file_exists("pages/$page.php")) {
             require "requests/404.php";
             exit();
         }
