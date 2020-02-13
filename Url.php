@@ -1,6 +1,6 @@
 <?php
 
-define("DEFAULT_PAGE", "home");
+define('DEFAULT_PAGE', 'home');
 
 class Url
 {
@@ -10,23 +10,23 @@ class Url
 
     public function start()
     {
-        // $url = $_SERVER["REQUEST_URI"];
-        $url = isset($_SERVER["PATH_INFO"]) ? $_SERVER["PATH_INFO"] : $_SERVER["REQUEST_URI"];
-        // echo "<pre>" .print_r($_SERVER, true) ."</pre>";
+        // $url = $_SERVER['REQUEST_URI'];
+        $url = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : $_SERVER['REQUEST_URI'];
+        // echo '<pre>' .print_r($_SERVER, true) .'</pre>';
 
         # Get the page
         $page = $this->getPage($url);
 
         // echo "Page: $page";
 
-        $pages = json_decode(file_get_contents("pages.json"), true);
-        // echo "<pre>" .var_export($pages, true) ."</pre>";
+        $pages = json_decode(file_get_contents('pages.json'), true);
+        // echo '<pre>' .var_export($pages, true) .'</pre>';
 
         if (isset($pages[$page])) {
             extract($pages[$page]);
-            require "pages/layout/app.php";
+            require 'pages/layout/app.php';
         } else {
-            require "requests/404.php";
+            require 'requests/404.php';
             exit();
         }
     }
@@ -37,9 +37,10 @@ class Url
 
         $url = explode("/", $url);
         $url = array_values(array_filter($url));
-        // echo "<pre>" .print_r($url, true) ."</pre>";
+        // echo '<pre>' .print_r($url, true) .'</pre>';
 
-        $index = strpos($url[0], ".php");
+        $path = end($url);
+        $index = strpos($path, '.php');
         $index = $index === false ? -1 : $index;
         // echo "Index: $index <br>";
 
