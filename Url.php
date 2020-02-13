@@ -33,9 +33,7 @@ class Url
 
     private function getPage($url)
     {
-        if ($url === "/") return DEFAULT_PAGE;
-
-        $url = explode("/", $url);
+        $url = explode('/', $url);
         $url = array_values(array_filter($url));
         // echo '<pre>' .print_r($url, true) .'</pre>';
 
